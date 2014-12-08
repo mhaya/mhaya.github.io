@@ -1,0 +1,209 @@
+オープンデータの可視化1 2014/5/17
+========================================================
+
+data.govのオープンデータを使ってグラフを描いてみます。
+
+対象データは「Baby Names: Beginning 2007」( http://catalog.data.gov/dataset/baby-names-beginning-2007 )です。
+
+まず、必要となるパッケージを読み込みます。
+
+```{r,message=FALSE}
+#パッケージを読み込む
+#未インストールの場合はインストール後に読み込む
+if(!require(RCurl)){
+  install.packages("RCurl")
+  require(RCurl)
+}
+if(!require(ggplot2)){
+  install.packages("ggplot2")
+  require(ggplot2)
+}
+
+```
+
+data.govからCSVファイルを読み込み、データの概要を確認します。
+
+```{r}
+#オープンデータの読み込み
+
+#tmp <- getURL("https://health.data.ny.gov/api/views/jxy9-yhdk/rows.csv?accessType=DOWNLOAD",ssl.verifypeer = FALSE)
+
+#CSV形式での読み込み
+
+#data <- read.csv(text=tmp)
+
+if(!file.exists("2007babyname.csv")){
+  download.file(url="https://health.data.ny.gov/api/views/jxy9-yhdk/rows.csv?accessType=DOWNLOAD",destfile="2007babyname.csv", method="curl")
+}
+data <- read.csv(file="2007babyname.csv")
+#オープンデータの確認（先頭数行のみ）
+head(data)
+#オープンデータの概要
+summary(data)
+```
+
+データのサイズと列名を確認します。
+
+```{r}
+#オープンデータのサイズ確認
+dim(data)
+#オープンデータの列名確認
+names(data)
+```
+
+簡単に集計してみます。
+
+```{r}
+#クロス集計(性別毎)
+table(data$Sex)
+#クロス集計(調査年毎)
+table(data$Year)
+#クロス集計(性別・年毎)
+table(data$Sex,data$Year)
+```
+
+性別毎にデータを集計します。
+
+```{r}
+#クロス集計結果をデータフレームに変換
+tbl <- data.frame(table(data$Sex))
+#確認
+tbl
+#列名の設定
+names(tbl) <- c("Sex","Total")
+#確認
+tbl
+#各列の確認
+tbl$Sex
+tbl$Total
+```
+
+集計結果をグラフにします。
+
+```{r}
+#棒グラフの描画(x軸は性別、y軸は集計結果)
+ggplot(tbl,aes(x=Sex,y=Total))+geom_bar(stat="identity")
+```
+
+調査年毎にデータを集計し、グラフにします。
+
+```{r}
+#クロス集計結果をデータフレームに変換
+tbl <- data.frame(table(data$Year))
+#列名の設定
+names(tbl) <- c("Year","Total")
+#棒グラフの描画(横軸は年、縦軸は集計結果)
+ggplot(tbl,aes(x=Year,y=Total))+geom_bar(stat="identity")
+```
+
+郡毎にデータを集計し、グラフにします。
+
+```{r}
+#クロス集計結果をデータフレームに変換
+tbl <- data.frame(table(data$County))
+#列名の設定
+names(tbl) <- c("County","Total")
+#棒グラフの描画(横軸は郡、縦軸は集計結果)
+ggplot(tbl,aes(x=County,y=Total))+geom_bar(stat="identity")
+```
+
+X軸ラベルが潰れて見えません。
+
+X軸ラベルを縦にします。
+
+```{r}
+ggplot(tbl,aes(x=County,y=Total))+geom_bar(stat="identity")+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+郡、性別毎にデータを集計し、グラフにします。
+
+```{r}
+#クロス集計
+table(data$County,data$Sex) 
+#クロス集計結果をデータフレームに変換
+tbl <- data.frame(table(data$County,data$Sex))
+#列名の設定
+names(tbl) <- c("County","Sex","Total")
+#グラフ作成(x軸は郡、y軸は集計数,塗色は性別毎、ｘ軸ラベルは縦)
+g <- ggplot(tbl,aes(x=County,y=Total,fill=Sex))+geom_bar(stat="identity")
+g <- g+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+#グラフ描画
+g
+```
+
+人気の名前ベスト10を表示してみます。
+
+```{r}
+#クロス集計
+tbl <- table(data$First.Name)
+#上位10位の表示
+sort(tbl,decreasing=TRUE)[1:10]
+```
+
+もう少し、こったグラフを描いてみます。
+
+2012年の男女兼用名について調べてみます。
+
+```{r}
+#2012年データの抽出
+sub <- subset(data,Year==2012)
+#男性データの抽出
+male <- sub[sub$Sex=="M",]
+#女性データの抽出
+female <- sub[sub$Sex=="F",]
+#データの要約
+summary(male)
+summary(female)
+```
+
+データを集計します。
+
+```{r}
+#名前をキーにCount列集計
+m <- aggregate(male$Count,list(male$First.Name),sum)
+names(m) <- c("name","cnt")
+#名前をキーにCount列集計
+f <- aggregate(female$Count,list(female$First.Name),sum)
+names(f) <- c("name","cnt")
+#データ確認(先頭3行だけ表示)
+head(m[order(m$cnt,decreasing=TRUE),],n=3)
+head(f[order(f$cnt,decreasing=TRUE),],n=3)
+```
+
+データを結合します。
+
+```{r}
+#名前が一致する(=男女兼用名)データのみ結合
+tmp <- merge(m,f,by="name")
+names(tmp) <- c("name","male","female")
+#男性への命名数が多い順に並び替え
+tmp[order(tmp$male,decreasing=TRUE),]
+```
+
+データを再構成します。
+
+```{r}
+#パッケージの読み込み(データフレーム再構成用)
+library(reshape2)
+#男性への命名数が多い順に並び替え
+tbl <- tmp[order(tmp$male,decreasing=TRUE),]
+#名前をキーにデータ再構成
+tbl <- melt(tbl,id="name")
+#確認
+tbl
+```
+
+グラフを描画します。
+
+```{r}
+#列名の確認
+names(tbl)
+#横棒グラフの描画
+g <- ggplot(tbl,aes(x=reorder(name,value),y=value,fill=variable))
+g <- g +geom_bar(stat="identity")+coord_flip()
+g
+```
+
+以上、data.govのデータを使った可視化例でした。
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Masaharu Hayashi</span> を著作者とするこの 作品 は <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">クリエイティブ・コモンズの 表示 4.0 国際 ライセンス</a>で提供されています。
