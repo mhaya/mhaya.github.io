@@ -4,6 +4,9 @@ layout: default
 
 ## Rの使い方
 - [Day 0:R入門](intro.html)
+- [Day 0:Rスクリプト](rcode.html)
+- [Day 0:Rオブジェクトの保存と読み込み](rsaveload.html)
+
 
 ## Rインストールメモ
 
