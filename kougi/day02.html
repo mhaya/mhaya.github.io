@@ -386,7 +386,7 @@ dat&lt;-<span class="kw">aggregate</span>(<span class="dt">x=</span><span class=
 <span class="co">#列名をつける</span>
 <span class="kw">names</span>(dat)&lt;-<span class="kw">c</span>(<span class="st">&quot;name&quot;</span>,<span class="st">&quot;count&quot;</span>)</code></pre></div>
 <p>集計結果を降順に並び替えて上位10件を表示します．</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#並び替えを行う．</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#並び替えを行う．idxには並び替え後のインデックスが格納される．</span>
 idx&lt;-<span class="kw">order</span>(dat$count,<span class="dt">decreasing=</span><span class="ot">TRUE</span>)
 <span class="co">#内容確認</span>
 <span class="kw">head</span>(idx,<span class="dt">n=</span><span class="dv">3</span>)</code></pre></div>
@@ -665,36 +665,38 @@ a&lt;-<span class="kw">data.frame</span>(<span class="dt">id=</span><span class=
 b&lt;-<span class="kw">data.frame</span>(<span class="dt">id=</span><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">10</span>,<span class="dv">5</span>),<span class="dt">type=</span><span class="kw">sample</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>),<span class="dv">10</span>),<span class="dv">5</span>))
 a</code></pre></div>
 <pre><code>##   id type
-## 1  3    B
-## 2  9    B
-## 3  8    C
-## 4  5    C
-## 5 10    A</code></pre>
+## 1  7    B
+## 2  4    C
+## 3  2    A
+## 4  9    B
+## 5 10    C</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b</code></pre></div>
 <pre><code>##   id type
-## 1  3    B
-## 2  8    A
-## 3 10    C
-## 4  6    B
-## 5  4    C</code></pre>
+## 1  4    C
+## 2  7    B
+## 3  9    C
+## 4  2    B
+## 5  6    B</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#id列をキーに統合する．idが一致する行を結合する</span>
 <span class="kw">merge</span>(<span class="dt">x=</span>a,<span class="dt">y=</span>b,<span class="dt">by=</span><span class="st">&quot;id&quot;</span>)</code></pre></div>
 <pre><code>##   id type.x type.y
-## 1  3      B      B
-## 2  8      C      A
-## 3 10      A      C</code></pre>
+## 1  2      A      B
+## 2  4      C      C
+## 3  7      B      B
+## 4  9      B      C</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#type列をキーに統合する．typeが一致する行を結合する</span>
 <span class="kw">merge</span>(<span class="dt">x=</span>a,<span class="dt">y=</span>b,<span class="dt">by=</span><span class="st">&quot;type&quot;</span>)</code></pre></div>
-<pre><code>##   type id.x id.y
-## 1    A   10    8
-## 2    B    3    3
-## 3    B    3    6
-## 4    B    9    3
-## 5    B    9    6
-## 6    C    8   10
-## 7    C    8    4
-## 8    C    5   10
-## 9    C    5    4</code></pre>
+<pre><code>##    type id.x id.y
+## 1     B    7    7
+## 2     B    7    2
+## 3     B    7    6
+## 4     B    9    7
+## 5     B    9    2
+## 6     B    9    6
+## 7     C    4    4
+## 8     C    4    9
+## 9     C   10    4
+## 10    C   10    9</code></pre>
 </div>
 <div id="reshape2melt" class="section level4">
 <h4>reshape2::melt</h4>
