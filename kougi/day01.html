@@ -261,6 +261,16 @@ div.tocify {
 </div>
 
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86504114-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 <div class="section level1">
 <h1>環境構築</h1>
 <p>まずは演習環境を整えます．</p>
@@ -503,24 +513,24 @@ d&lt;-<span class="kw">data.frame</span>(<span class="dt">gender=</span><span cl
 <span class="co">#頭のデータを確認する</span>
 <span class="kw">head</span>(d)</code></pre></div>
 <pre><code>##   gender type rank
-## 1      F    A    B
-## 2      M    B    A
-## 3      F    B    D
-## 4      M    A    D
-## 5      M    A    D
-## 6      F    B    A</code></pre>
+## 1      F    O    C
+## 2      F    A    F
+## 3      F    O    F
+## 4      F    A    C
+## 5      F    B    B
+## 6      F    A    A</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#クロス集計（gender,rank）</span>
 <span class="kw">table</span>(d$gender,d$rank)</code></pre></div>
 <pre><code>##    
 ##      A  B  C  D  F
-##   F 12  9  7  8 14
-##   M 10 10 10 10 10</code></pre>
+##   F 10  8 12  6 15
+##   M  6  7 16 12  8</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#クロス集計(gender,type)</span>
 <span class="kw">table</span>(d$gender,d$type)</code></pre></div>
 <pre><code>##    
 ##      A  B  O
-##   F 17 16 17
-##   M 14 22 14</code></pre>
+##   F 16 17 18
+##   M 19 13 17</code></pre>
 </div>
 <div class="section level2">
 <h2>グラフの描画</h2>
