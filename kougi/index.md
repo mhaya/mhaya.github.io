@@ -4,7 +4,7 @@ layout: default
 
 # 情報応用論サポートサイト
 
-update: 2016/10/25
+update: 2016/11/10
 
 ## 演習
 
@@ -27,3 +27,4 @@ update: 2016/10/25
 ## 関連ドキュメント
 
 - [Rの使い方](howto/)
+- [ggplot2の使い方](ggplot2/)
