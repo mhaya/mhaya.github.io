@@ -19,7 +19,7 @@ update: 2016/12/15
 - [day09:統計GISデータの可視化](day09.html)
 - [day10:オープンデータの可視化](day10.html)
 - [day11:はじめてのd3.js](day11.html)
-- [day12]()
+- [day12:d3.jsによる可視化](day12.html)
 - [day13]()
 - [day14]()
 
