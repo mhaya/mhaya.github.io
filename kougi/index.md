@@ -4,7 +4,7 @@ layout: default
 
 # H28 一橋大学情報応用論（テキスト処理）サポートサイト
 
-update: 2016/12/15
+update: 2017/01/11
 
 ## 演習
 
@@ -19,8 +19,8 @@ update: 2016/12/15
 - [day09:統計GISデータの可視化](day09.html)
 - [day10:オープンデータの可視化](day10.html)
 - [day11:はじめてのd3.js](day11.html)
-- [day12:d3.jsによる可視化](day12.html)
-- [day13]()
+- [day12:d3.jsによる地理空間情報の可視化](day12.html)
+- [day13:d3.jsによる地理空間情報の可視化2](day13.html)
 - [day14]()
 
 
