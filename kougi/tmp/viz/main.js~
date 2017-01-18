@@ -1,0 +1,70 @@
+var width = parseInt(d3.select("#svg").style("width"));
+var height = parseInt(d3.select("#svg").style("height"));
+
+var svg = d3.select("#svg")
+    .append("svg").attr("width",width).attr("height",height);
+
+var color = d3.schemeCategory10;
+var len = 1000;
+
+svg.append('image')
+    .attr("xlink:href","img.png")
+    .attr("width",width)
+    .attr("height",height);
+
+var words; 
+d3.csv("input.csv", function(error, data){
+    if (error != null) {
+      console.log(err);
+      return;
+    }
+    words = data;
+
+
+//    svg.on("mousemove",function(){
+    svg.on("mousedown",function(){
+	// マウス座標を取得
+	var coordinate = d3.mouse(document.getElementById('svg'));
+	// 角度をランダム算出
+	var rad = Math.random()*(2*Math.PI);
+	// 角度と距離から座標を算出
+	var x = Math.cos(rad)*(len+coordinate[0]);
+	var y = Math.cos(rad)*(len+coordinate[1]);
+
+	// マウス座標から画像番号を算出
+	var id = (Math.floor(coordinate[0]/width*5)+1)*(Math.floor(coordinate[1]/height*2)+1);
+
+	// 画像番号でフィルタ
+	var words = data.filter(function(d){
+	    if(d.id == id){
+		return d;
+	    }
+	});
+
+	// 文章を乱数で決定
+	var num = Math.floor(Math.random()*words.length);
+
+	//文章分割
+	var txt = (words[num].text).split("");
+	for( i=0;i < txt.length;i++){
+	    
+	    svg.append("text")
+		.attr("x",coordinate[0])
+		.attr("y",coordinate[1])
+		.text(txt[i])
+		.attr("class","text")
+		//.style("stroke",color[id])
+		//.style("fill",color[id])
+		.attr("font-size",40)
+		.transition()
+		.delay(120*i)
+		.duration(8000)
+		.attr("y",y)
+		.attr("x",x)
+		.remove()
+	}	
+    });
+});
+
+
+
