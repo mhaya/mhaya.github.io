@@ -1,0 +1,738 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <title>USER-1-1: 簡易検索（全文検索・キーワード検索） 1 · 機能仕様書</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 5.1.4">
+        <meta name="author" content="Research Center for Open Science and Data Platform, National Institute of Informatics">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-intopic-toc/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索ワードを入力" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    ユーザ機能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="USER_1_1.html">
+            
+                <a href="USER_1_1.html">
+            
+                    
+                    USER-1-1: 簡易検索（全文検索・キーワード検索） 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">アイテムリスト</li>
+        
+        
+    
+
+    
+        
+        <li class="header">アイテム詳細</li>
+        
+        
+    
+
+    
+        
+        <li class="header">ワークフロー 85</li>
+        
+        
+    
+
+    
+        
+        <li class="header">コミュニティ 53</li>
+        
+        
+    
+
+    
+        
+        <li class="header">ランキング 55</li>
+        
+        
+    
+
+    
+        
+        <li class="header">大容量ファイルアップロード 61</li>
+        
+        
+    
+
+    
+        
+        <li class="header">言語切替 62</li>
+        
+        
+    
+
+    
+        
+        <li class="header">ユーザーアカウント 63</li>
+        
+        
+    
+
+    
+        
+        <li class="header">Cookie 75</li>
+        
+        
+    
+
+    
+        
+        <li class="header">管理機能</li>
+        
+        
+    
+
+    
+        
+        <li class="header">アイテムタイプ管理</li>
+        
+        
+    
+
+    
+        
+        <li class="header">アイテム管理 104</li>
+        
+        
+    
+
+    
+        
+        <li class="header">3 インデックスツリー管理 155</li>
+        
+        
+    
+
+    
+        
+        <li class="header">4 ウェブデザイン管理 167</li>
+        
+        
+    
+
+    
+        
+        <li class="header">5 著者DB管理 185</li>
+        
+        
+    
+
+    
+        
+        <li class="header">6 統計 217</li>
+        
+        
+    
+
+    
+        
+        <li class="header">7 ワークフロー管理 242</li>
+        
+        
+    
+
+    
+        
+        <li class="header">8 コミュニティ管理 256</li>
+        
+        
+    
+
+    
+        
+        <li class="header">9 OAI-PMH 265</li>
+        
+        
+    
+
+    
+        
+        <li class="header">10 Resource Sync 277</li>
+        
+        
+    
+
+    
+        
+        <li class="header">11 レコード管理 296</li>
+        
+        
+    
+
+    
+        
+        <li class="header">12 ファイル管理 302</li>
+        
+        
+    
+
+    
+        
+        <li class="header">13 ユーザ管理 324</li>
+        
+        
+    
+
+    
+        
+        <li class="header">ADMIN-14 設定 354</li>
+        
+        
+    
+
+    
+        
+        <li class="header">15 メンテナンス</li>
+        
+        
+    
+
+    
+        
+        <li class="header">WebAPI 425</li>
+        
+        
+    
+
+    
+        
+        <li class="header">データ構造</li>
+        
+        
+    
+
+    
+        
+        <li class="header">その他</li>
+        
+        
+    
+
+    
+        
+        <li class="header">制限公開機能</li>
+        
+        
+    
+
+    
+        
+        <li class="header">ツール</li>
+        
+        
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            HonKitで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >USER-1-1: 簡易検索（全文検索・キーワード検索） 1</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h3 id="簡易検索（全文検索・キーワード検索）"><a name="簡易検索（全文検索・キーワード検索）" class="plugin-anchor" href="#簡易検索（全文検索・キーワード検索）"><i class="fa fa-link" aria-hidden="true"></i></a>簡易検索（全文検索・キーワード検索）</h3>
+<!-- end list -->
+<h4 id="目的・用途"><a name="目的・用途" class="plugin-anchor" href="#目的・用途"><i class="fa fa-link" aria-hidden="true"></i></a>目的・用途</h4>
+<p>本機能は、ユーザーがアイテムを検索する際に用いる機能である。<br>タイトルや著者名等の項目を指定せず、全ての項目を対象に検索を行うことで、目的のアイテムを見つけることができる。</p>
+<h4 id="利用方法"><a name="利用方法" class="plugin-anchor" href="#利用方法"><i class="fa fa-link" aria-hidden="true"></i></a>利用方法</h4>
+<p>メインコンテンツ」ウィジェットの［トップ（Top）］タブにある検索テキストボックスに文字列を入力し、入力エリア右隣の［検索（Search）］ボタンを押下することで、検索結果が表示される<span id="_Item_Registration：フィードバックメール機能" class="anchor"></span>。</p>
+<h4 id="利用可能なロール"><a name="利用可能なロール" class="plugin-anchor" href="#利用可能なロール"><i class="fa fa-link" aria-hidden="true"></i></a>利用可能なロール</h4>
+<table>
+<thead>
+<tr class="header">
+<th>ロール</th>
+<th>システム<br>
+管理者</th>
+<th>リポジトリ<br>
+管理者</th>
+<th>コミュニティ<br>
+管理者</th>
+<th>登録ユーザー</th>
+<th>一般ユーザー</th>
+<th>ゲスト<br>
+(未ログイン)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>利用可否</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="機能内容"><a name="機能内容" class="plugin-anchor" href="#機能内容"><i class="fa fa-link" aria-hidden="true"></i></a>機能内容</h4>
+<!-- end list -->
+<ul>
+<li><p>「メインコンテンツ」ウィジェットの「トップ」タブ画面の上部にアイテム検索エリアを設ける。</p>
+</li>
+<li><p>アイテム検索エリア</p>
+<ul>
+<li><p>検索テキストボックスを表示する。</p>
+</li>
+<li><p>検索方式ラジオボタン（［全文（Full text）］と［キーワード（Keyword）］）を表示する。</p>
+<ul>
+<li><p>［全文（Full text）］ラジオボタンにチェックを入れる場合、<br>登録されたアイテムのメタデータと登録されたコンテンツの内容から検索される。</p>
+</li>
+<li><p>［キーワード（Keyword）］ラジオボタンにチェックを入れる場合、<br>登録されたアイテムのメタデータから検索される。</p>
+</li>
+<li><p>デフォルトでは［全文（Full text）］ラジオボタンにチェックが入った状態である。</p>
+</li>
+</ul>
+</li>
+<li><p>検索テキストボックス右隣にある［検索（Search）］ボタンを押下することで、入力された文字列でアイテム検索を行う。</p>
+<ul>
+<li><p>［検索（Search）］ボタンを押下せず、テキストボックス内にカーソルキーがある状態でエンターキーを押下することでも検索できる。</p>
+</li>
+<li><blockquote>
+<p>検索文字列を入力しない場合、検索条件無しとする。（登録データの全件を対象とした検索となる。）</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>文字間に空白を入れることでAND検索を行うことができる。</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>以下の特殊な意味をもつ英字のみでは検索を行うことができない。<br>a, an, and, are, as, at, be, but, by, for, if, in, into, is, it, no, not, of, on, or, such, that, the, their, then, there, these, they, this, to, was, will, with</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>以下の特殊文字は検索時に指定できる。<br>入力された特別文字は内部的にエスケープする。<br>+ - = &amp;&amp; || ! ( ) { } [ ] ^ &quot; ~ * ? : \ /<br>エスケープできない文字(「\&lt;」「&gt;」)で検索を行った場合は、「’\&lt;’,’&gt;’は検索に使用できません。」とエラーメッセージを表示する。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><blockquote>
+<p>[検索（Search）]ボタンの右にある［詳細検索（Advanced）］ボタンを押下することで、詳細検索エリアを表示する。詳細検索については<a href="../l">USER-1-2: 詳細検索</a>を参照。</p>
+</blockquote>
+</li>
+<li><p>検索を行うと、検索結果がトップページ画面の検索結果エリアに表示される。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>検索結果は【Administration &gt; 設定（Setting） &gt; 検索設定（Search）画面】での設定の通りに表示される。詳細については、<a href="#一覧形式表示">USER-2-1一覧形式表示</a>を参照。</p>
+<p>検索結果エリア</p>
+<ul>
+<li><p>［エクスポート（Export）］ボタンを表示する。<br>ボタンを押下すると、一括出力画面に遷移して、アイテムの情報をエクスポートできる。アイテムの一括出力については<a href="#アイテム一括出力">USER-2-4: アイテム一括出力</a>を参照。</p>
+</li>
+<li><p>アイテム表示の設定エリア<br>デフォルト値について、設定されている【Administration &gt; 設定（Setting） &gt; 検索設定（Search）画面】の検索結果表示設定エリアから取得する。</p>
+<ul>
+<li><p>［表示順］（Display Order）プルダウンリスト：検索結果の表示順を選択する。<br>選択肢は【Administration &gt; 設定（Setting） &gt; 検索設定（Search）画面】での「表示する」リストとする。</p>
+</li>
+<li><p>順序プルダウン：昇順、降順を選択する。<br>選択肢は「asc, desc」とする。</p>
+</li>
+<li><p>［表示数］（Display Number）プルダウンリスト選択肢は「20,50,75,100」とする。</p>
+</li>
+</ul>
+</li>
+<li><p>アイテム一覧表示</p>
+<ul>
+<li><p>アイテムタイトルがリンク形式で表示される。<br>リンクをクリックすると、該当アイテム詳細画面に遷移する。</p>
+</li>
+<li><p>表示されるアイテムはロールによって異なる。<br>システム管理者、リポジトリ管理者、コミュニティ管理者の場合はすべて表示される。<br>ただし、制限公開されているアイテムについては、公開日までシステム管理者と登録者のみ閲覧可能となる。<br>登録ユーザー、一般ユーザー、ゲストの場合はpublicなインデックスツリー内のpublicなアイテムのみ表示される。<br>ただし、登録ユーザーに関しては自身で登録したアイテムのみPrivateであっても検索対象となる。</p>
+</li>
+</ul>
+</li>
+<li><p>ページング機能を設ける。</p>
+<ul>
+<li>ページングナビゲーションを操作することで、表示内容が切り替わる。</li>
+</ul>
+</li>
+</ul>
+<!-- end list -->
+<h4 id="関連モジュール"><a name="関連モジュール" class="plugin-anchor" href="#関連モジュール"><i class="fa fa-link" aria-hidden="true"></i></a>関連モジュール</h4>
+<h5 id="wekosearchui：検索結果をuiに表示する"><a name="wekosearchui：検索結果をuiに表示する" class="plugin-anchor" href="#wekosearchui：検索結果をuiに表示する"><i class="fa fa-link" aria-hidden="true"></i></a>weko_search_ui：検索結果をUIに表示する</h5>
+<p>config.WEKO_SEARCH_UI_JSTEMPLATE_LIST_RESULTS : アイテム一覧のテンプレート</p>
+<h5 id="wekorecords"><a name="wekorecords" class="plugin-anchor" href="#wekorecords"><i class="fa fa-link" aria-hidden="true"></i></a>weko_records</h5>
+<p>utils.sort_meta_data_by_options: </p>
+<h5 id="wekoitemsui"><a name="wekoitemsui" class="plugin-anchor" href="#wekoitemsui"><i class="fa fa-link" aria-hidden="true"></i></a>weko_items_ui</h5>
+<h5 id="wekotheme"><a name="wekotheme" class="plugin-anchor" href="#wekotheme"><i class="fa fa-link" aria-hidden="true"></i></a>weko_theme</h5>
+<!-- end list -->
+<h4 id="処理概要"><a name="処理概要" class="plugin-anchor" href="#処理概要"><i class="fa fa-link" aria-hidden="true"></i></a>処理概要</h4>
+<blockquote>
+<p>メインコンテンツ」ウィジェットの、［トップ（Top）］タブ上部にアイテム検索エリアを表示する。</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>アイテム検索エリアには検索文字列を入力するテキストボックス、［検索（Search）］ボタン、［詳細検索（Advanced）］ボタン、全文/キーワードの検索方式を切り替えるラジオボタンを表示する。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>メインコンテンツ」ウィジェットの［トップ（Top）］タブにある検索テキストボックスに文字列を入力し、入力エリア右隣の［検索（Search）］ボタンを押下することで、weko_search_ui.views.searchメソッドが呼び出され、検索の処理を実行する。検索文字列を入力しない場合、登録データの全件を対象とした検索を行う。</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>［検索（Search）］ボタンを押下せず、テキストボックス内にカーソルキーがある状態でエンターキーを押下することでも、同様に検索処理を実行する。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>検索処理後、メインコンテンツ」ウィジェットの［トップ（Top）］タブに検索結果エリアを表示する。検索結果エリアの表示形式はdb内のSearchManagementテーブルの情報から作成される。</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>検索結果エリアにはエクスポートボタン、アイテムの表示順、表示数の現在の設定、検索結果のアイテム一覧、ページングナビゲーションを表示する。</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>最初に検索した際は、アイテム表示に関する設定のデフォルト値として、【Administration &gt; 設定（Setting） &gt; 検索設定（Search）画面】での［検索結果表示設定］エリアで設定された値を取得し、取得した値に従って表示する。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>［エクスポート（Export）］ボタンを押下すると一括出力画面に遷移し、アイテムの情報をエクスポートできる。アイテムの一括出力については<a href="../l">USER-2-4: アイテム一括出力</a>を参照。</p>
+<p>アイテムタイトルのリンクをクリックすると、該当アイテムの詳細画面に遷移する。</p>
+<p>アイテムの表示順、表示数のプルダウンを選択すると、検索結果エリアでのアイテムの表示を選択した表示順、表示数に変更する処理を行う。</p>
+</blockquote>
+<h4 id="更新履歴"><a name="更新履歴" class="plugin-anchor" href="#更新履歴"><i class="fa fa-link" aria-hidden="true"></i></a>更新履歴</h4>
+<table>
+<thead>
+<tr class="header">
+<th>日付</th>
+<th>GitHubコミットID</th>
+<th>更新内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p>2022/04/28</p>
+</blockquote></td>
+<td>57247ecce9b5e0879a2538687e446e0ea310129c</td>
+<td>初版作成</td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2023/08/31</p>
+</blockquote></td>
+<td>353ba1deb094af5056a58bb40f07596b8e95a562</td>
+<td>v0.9.22対応</td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2024/07/1</p>
+</blockquote></td>
+<td>7733de131da9ad59ab591b2df1c70ddefcfcad98</td>
+<td>v1.0.7対応</td>
+</tr>
+</tbody>
+</table>
+</body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: ユーザ機能">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"USER-1-1: 簡易検索（全文検索・キーワード検索） 1","level":"1.2.1","depth":2,"previous":{"title":"ユーザ機能","level":"1.2","depth":1,"path":"user/README.md","ref":"user/README.md","articles":[{"title":"USER-1-1: 簡易検索（全文検索・キーワード検索） 1","level":"1.2.1","depth":2,"path":"user/USER_1_1.md","ref":"user/USER_1_1.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["intopic-toc","back-to-top-button","anchors","collapsible-chapters","hide-published-with","plantuml-cloud"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"intopic-toc":{"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4, .markdown-section h5, .markdown-section h6","mode":"nested","maxDepth":6,"isCollapsed":true,"isScrollspyActive":true,"visible":true,"label":"In this article"},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"plantuml-cloud":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Research Center for Open Science and Data Platform, National Institute of Informatics","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"機能仕様書","language":"ja","gitbook":"*","description":""},"file":{"path":"user/USER_1_1.md","mtime":"2024-08-27T03:35:33.286Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-09-07T01:38:25.455Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-intopic-toc/gumshoe.polyfills.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-published-with/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
